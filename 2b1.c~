@@ -1,11 +1,7 @@
 #include <stdio.h>
 #include <sys/wait.h>
 #include <unistd.h>
-#include <string.h>
 #include <malloc.h>
-#include <stdlib.h>
-#include <sys/types.h>
-
 void bubbleSort(int array[],int);
 
 int main(){
@@ -25,33 +21,33 @@ int main(){
 	printf("Accepted the array of numbers\n\n");
 	printf("Now invoking fork\n\n");
 	
-	pid = fork();
+//	pid = fork();
 	
-	if(pid != 0){
-		//parent process is invoked
-		printf("Into the parent process\n");
-		printf("Sorting the array\n");
+//	if(pid == 0){		//if the child process is invoked.....
+//		printf("Into the child process\n\n");
+//		printf("Sorting the array\nCalling the bubble sort\n\n");
 		bubbleSort(integerArray,noOfElements);
-		printf("The array is sorted\n");
-		printf("\nParent sleeping to invoke child process\n");
-		sleep(15);
-		printf("Parent woke up\n");
-		printf("The parent is exiting\n");
-	}
-	else if (pid == 0){
-		printf("Into the child process\n");
-		printf("Converting the array to the string\n");
-				
+		printf("Sorting complete\nConverting the array to the string\n");
+		
 		for(int j = 0 ; j<noOfElements; j++){
 			printf("%d\n",integerArray[j]);
 			sprintf(str,"%d",integerArray[j]);
 			s[j] = malloc(sizeof(str));
 			strcpy(s[j],str);
 		}
-		printf("Invoking another program\n");
+		
 		execve("./2b2",s,NULL);
-		printf("Returned to child process\nChild exiting\n");
-	}
+		
+		printf("The integer array is converted to the string\n%s\n",str);
+		printf("Child process is exiting\n\n");
+//	}
+//	else{				//parent process is invoked
+//		printf("Into the parent process\n\nParent in the waiting mode\n\n");
+//		sleep(15);
+//		printf("Parent done waiting\n");
+//		printf("The parent is exiting\n");
+//		
+//	}
 }
 
 void swap(int *xp, int *yp) 
