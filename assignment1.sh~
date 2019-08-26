@@ -44,6 +44,6 @@ while [ $choice -ne 5 ]
 			grep "$tempname" $filename && echo "Found"
 			grep "$tempname" $filename || echo "Not Found"
 			;;
-		5 ) echo "Thank You!!"
+		
 		esac
 	done
