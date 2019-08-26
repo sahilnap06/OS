@@ -11,9 +11,14 @@ void *matrixMult(void *args){
 	row = rcArgs[0];
 	col = rcArgs[1];
 	k = rcArgs[2];
+<<<<<<< HEAD
 	print("Thread for %d-%");
 	for(int i = 0; i<l; i++ ){
 		sum += mat1[row][i] * mat2[i][col];
+=======
+	while(k--){
+		sum += mat1[row][k] * mat2[k][col];
+>>>>>>> f15935e0a61bbb79b8965847e23bbdb1e43262b7
 		
 	}
 	mat3[row][col] = sum;
