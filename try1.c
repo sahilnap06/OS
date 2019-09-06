@@ -3,6 +3,10 @@
 #include<semaphore.h>
 #include<pthread.h>
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 69eac82e0a4985ffea2a7d19f504e970f83e8a85
 #define MAX_SIZE 5
 
 typedef struct	{
@@ -103,4 +107,19 @@ main() {
 		pthread_join(cid[i],NULL);
 	}
 	return 0;
+<<<<<<< HEAD
+=======
+=======
+#define MAX_SIZE 15
+
+semaphore full,empty; 
+pthread_mutex_t lock;
+int buffer[MAX_SIZE];
+int front = 0;rear = MAX_SIZE - 1;
+
+void *producer(void *args){
+	int thread_number = (int *)args;
+	sem_wait(&empty);
+>>>>>>> f15935e0a61bbb79b8965847e23bbdb1e43262b7
+>>>>>>> 69eac82e0a4985ffea2a7d19f504e970f83e8a85
 }
