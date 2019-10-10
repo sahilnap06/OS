@@ -2,9 +2,11 @@
 
 choice=0
 filename="file.txt"
-variable="null"
+name="null"
+mobileNo="null"
+tempName="null"
 
-while [ $choice -ne 4 ]
+while [ $choice -ne 5 ]
 	do 
 		#display the menu
 		echo "1 -> Create a file"
@@ -27,14 +29,21 @@ while [ $choice -ne 4 ]
 			fi
 		 	;;
 			
-		2 )	echo "Enter the name and value in format 'name,value' without quotes"
-			read variable
-			echo "$variable" >> $filename
+		2 )	echo "Enter the name"
+			read name
+			echo "Enter the Mobile Number"
+			read mobileNo
+			echo "$name $mobileNo" >> $filename
 			;;
 		3 ) echo "The content of the file is as follows : "
 			cat $filename 
 			;;
 		
-		4 ) 
+		4 ) echo "Enter the name to be searched : "
+			read tempname
+			grep "$tempname" $filename && echo "Found"
+			grep "$tempname" $filename || echo "Not Found"
+			;;
+		5 ) echo "Thank You!!"
 		esac
 	done
