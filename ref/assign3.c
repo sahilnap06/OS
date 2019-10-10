@@ -17,7 +17,19 @@ void *mul_thread(void *arg)
 	rcArgs = (int *) arg;
 	row = rcArgs[0];
 	col = rcArgs[1];
+<<<<<<< HEAD
 	k = rcArgs[2];
+=======
+<<<<<<< HEAD
+	k = rcArgs[2];
+=======
+<<<<<<< HEAD
+	k = rcArgs[2];
+=======
+	k	= rcArgs[2];
+>>>>>>> f15935e0a61bbb79b8965847e23bbdb1e43262b7
+>>>>>>> 69eac82e0a4985ffea2a7d19f504e970f83e8a85
+>>>>>>> eb3dd7c3ca0efea0a7c47ace4b6754a5c0e67273
 	printf("\n\tThread No %d-%d joined",row+1,col+1);
 	for(i=0;i<k;i++)
 	{

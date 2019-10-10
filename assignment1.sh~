@@ -1,0 +1,49 @@
+#!/bin/bash
+
+choice=0
+filename="file.txt"
+name="null"
+mobileNo="null"
+tempName="null"
+
+while [ $choice -ne 5 ]
+	do 
+		#display the menu
+		echo "1 -> Create a file"
+		echo "2 -> Write to the file"
+		echo "3 -> Read from the file"
+		echo "4 -> Search from the file"
+		echo "5 -> Exit"
+		
+		read choice #accept the choice
+		case $choice in
+		 1 ) echo "Enter the name of the file : "
+			read filename
+			if [ -e $filename ]
+				then
+					echo "File already present"
+			else
+				touch $filename
+				ls -l $filename	#checks if the file is created or not
+				echo "Welcome to $filename"
+			fi
+		 	;;
+			
+		2 )	echo "Enter the name"
+			read name
+			echo "Enter the Mobile Number"
+			read mobileNo
+			echo "$name $mobileNo" >> $filename
+			;;
+		3 ) echo "The content of the file is as follows : "
+			cat $filename 
+			;;
+		
+		4 ) echo "Enter the name to be searched : "
+			read tempname
+			grep "$tempname" $filename && echo "Found"
+			grep "$tempname" $filename || echo "Not Found"
+			;;
+		
+		esac
+	done
